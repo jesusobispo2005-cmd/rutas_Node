@@ -1,3 +1,12 @@
-export function dbConfig() {
-  return "Texto de prueba desde la configuración de base de datos";
+import 'dotenv/config'
+import mongoose from 'mongoose'
+
+export async function dbConfig() {
+  try {
+    const connection = await mongoose.connect(process.env.MONGO_URI)
+    console.log("conectado")
+    return connection
+  } catch (e) {
+    console.log(e.message)
+  }
 }

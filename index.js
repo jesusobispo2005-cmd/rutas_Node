@@ -1,5 +1,8 @@
 import express from 'express'
 import userRouter from './src/routes/user.routes.js'
+import { dbConfig } from './src/config/db.config.js'
+
+dbConfig()
 
 const api = express()
 const PORT = 3000
